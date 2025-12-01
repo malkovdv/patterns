@@ -17,12 +17,12 @@ public class DataGenerator {
     }
 
     public static String generateCity() {
-        String[] cities = new String[]{"Ижевск", "Сарапул", "Глазов", "Казань", "Москва", "Воткинск", "Нефтекамск"};
-        return cities[new Random().nextInt(cities.length)];
+        String[] cities = new String[]{"Майкоп", "Горно-Алайск", "Уфа",  "Улан-Удэ", "Махачкала",  "Магас", "Нальчик"};
+        return  cities[new Random().nextInt(cities.length)];
     }
 
     public static String generateName(Faker faker) {
-        return faker.name().lastName() + "  " + faker.name().firstName();
+        return faker.name().lastName() +  " "  +  faker.name().firstName();
     }
 
     public static String generatePhone(Faker faker) {
@@ -37,10 +37,10 @@ public class DataGenerator {
 
         public static UserInfo generateUser(String locale) {
             faker = new Faker(new Locale(locale));
-            return new UserInfo(generateCity(), generateName(faker), generatePhone(faker));
+            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(faker),
+            // generateName(faker), generatePhone(faker)
+            return new UserInfo(generateCity(),  generateName(faker), generatePhone(faker));
         }
-
-
     }
 
     @Value
@@ -50,8 +50,3 @@ public class DataGenerator {
         String phone;
     }
 }
-
-
-
-
-
